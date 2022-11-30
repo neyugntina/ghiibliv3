@@ -1,0 +1,22 @@
+/* .Ghibli {
+  background: white
+    url("https://images-ext-1.discordapp.net/external/63uRUPGXrCeMiMA17LJ6TP_nvDHIL2CKjnQSbhKPoWE/https/wallpapercave.com/wp/wp3208337.jpg")
+    center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-image: url("");
+} */
+
+.Ghibli {
+  background: white url("/images/kikis.webp") center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}

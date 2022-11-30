@@ -12,6 +12,10 @@ import {
   Checkbox,
   Flex,
   VStack,
+  Link,
+  Text,
+  HStack,
+  Spacer,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -28,21 +32,31 @@ export default function Home() {
     return error;
   }
   return (
-    <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md" w={64}>
+    <Flex
+      bg="gray.100"
+      align="center"
+      justify="center"
+      h="100vh"
+      backgroundImage={"/images/kikis.webp"}
+    >
+      <Box bg="#D8F0F8" p={6} rounded="md" w={500} h={500} boxShadow="dark-lg">
+        <Image
+          src="/images/studio-ghibli.png"
+          alt="Ghibli Login"
+          width="300"
+          height="144"
+        />
         <Formik
           initialValues={{
             email: "",
             password: "",
             rememberMe: false,
           }}
-          onSubmit={(values) => {
-            alert(JSON.stringify(values, null, 2));
-          }}
+          onSubmit={() => router.push("/home")}
         >
           {({ handleSubmit, errors, touched }) => (
             <form onSubmit={handleSubmit}>
-              <VStack spacing={4} align="flex-start">
+              <VStack spacing={4}>
                 <FormControl>
                   <FormLabel htmlFor="email">Email Address</FormLabel>
                   <Field
@@ -73,17 +87,31 @@ export default function Home() {
                   />
                   <FormErrorMessage>{errors.password}</FormErrorMessage>
                 </FormControl>
-                <Field
-                  as={Checkbox}
-                  id="rememberMe"
-                  name="rememberMe"
-                  colorScheme="purple"
-                >
-                  Remember me?
-                </Field>
-                <Button type="submit" colorScheme="purple" width="full">
+                <Flex>
+                  <Field
+                    as={Checkbox}
+                    id="rememberMe"
+                    name="rememberMe"
+                    colorScheme="teal"
+                  >
+                    Remember me?
+                  </Field>
+                  <Spacer />
+                  <Field
+                    as={Link}
+                    id="forgotPassword"
+                    name="forgotPassword"
+                    colorScheme="teal"
+                  >
+                    Forgot Password
+                  </Field>
+                </Flex>
+                <Button type="submit" colorScheme="teal" width="full">
                   Login
                 </Button>
+                <Text fontSize="xs">
+                  Don't have an account? <Link colorScheme="teal">Sign Up</Link>
+                </Text>
               </VStack>
             </form>
           )}
